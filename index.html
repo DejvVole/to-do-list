@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <script src="https://use.fontawesome.com/4c0ffa4f7b.js"></script>
+    <script src="https://kit.fontawesome.com/5318d5fb86.js" crossorigin="anonymous"></script>
+
+    <title>To Do list</title>
+</head>
+
+<style>
+    body {
+    background-image: linear-gradient(to right, #f8c1c2, #fff2f2be);
+    /* background-repeat: repeat-y */
+}
+
+
+/* ikony */
+
+.fa-plus {
+    position: relative;
+    right: 33px;  
+    cursor: pointer;
+    color: #fb8085;
+    padding: 12px 9px 12px 9px;
+    transition: 0.7s;
+    font-size: 18px;
+}
+
+.fa-plus:hover {
+    background-color: #ff9fa2;
+    color: white;
+    transition: 0.7s;
+}
+
+.fa-trash-alt {
+    cursor: pointer;
+    background-color: rgb(255, 81, 0);
+    color: white;
+    font-size: 15px;
+    padding: 14px 10px 13px 10px;
+}
+
+.fa-check {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(2, 168, 2);
+    font-size: 15px;
+    padding: 14px 10px 13px 10px;
+}
+
+.fa-trash {
+    font-size: 28px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+}
+
+
+/* ----------------------------- */
+
+
+/* vypis */
+
+.veci {
+    text-align: center;
+}
+
+#pridane {
+    /* display: inline-block;
+    text-align: left;
+    font-size: 20px;
+    color: rgb(0, 0, 0); */
+    margin: 0 15% 0 15%;
+    font-size: 17px;
+    
+}
+
+
+/* ---------------------------*/
+
+.pridanie {
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+
+/* input */
+
+#vec {
+    /* padding-right: 15.75px; */
+    /* padding: 10px 15.75px 10px 10px; */
+    margin-left: 30px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+
+
+/* ---------------------------*/
+
+h2 {
+    cursor: pointer;
+    display: inline-block;
+    font: 900
+}
+
+.text {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    align-items: center;
+    padding-left: 15px;
+}
+
+.vypis {
+    padding: 10px;
+}
+
+.fajka {
+    text-decoration: line-through;
+    opacity: 0.2;
+}
+
+
+</style>
+
+<body>
+    <div class="pridanie">
+        <input id="vec" type="text" placeholder="Čo plánujete..." ><i id="pridajVec" class="fas fa-plus"></i>
+        <br> <br>
+    </div>
+    <br><br>
+
+    <div class="veci">
+        <div id="pridane"></div>
+    </div>
+    <i onclick='vymazVsetko()' class="fas fa-trash"></i>
+
+</body>
+<!-- <script src="app.js"></script> -->
+<script>
+    const hodnota = document.getElementById("vec");
+const pridaj = document.getElementById("pridajVec");
+const pridaneVeci = document.getElementById("pridane");
+
+pridaj.onclick = function() {
+    const hodnotaValue = hodnota.value;
+    const hodnotaValue2 = ' ';
+
+    if (hodnotaValue && hodnotaValue2) {
+        localStorage.setItem(hodnotaValue, hodnotaValue2);
+        location.reload();
+    }
+};
+
+for (let a = 0; a < localStorage.length; a++) {
+    const hodnotaValue = localStorage.key(a);
+    pridaneVeci.innerHTML += `<div class= 'text'> <div id="${a}">${hodnotaValue}</div> <div> 
+                            <i onclick='check("${hodnotaValue}", ${a})' class="fas fa-check"></i><i 
+                            onclick='odstran("${hodnotaValue}")' class="fas fa-trash-alt"></i> 
+                            </div></div> <br>`;
+
+}
+
+function check(hodnotaValue, id) {
+    const elem = document.getElementById(id);
+    elem.classList.toggle("fajka");
+  }
+
+function odstran(hodnotaValue) {
+    localStorage.removeItem(hodnotaValue);
+    location.reload();
+}
+
+function vymazVsetko() {
+    localStorage.clear();
+    location.reload();
+}
+
+
+
+
+</script>
+
+</html>
