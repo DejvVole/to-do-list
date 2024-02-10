@@ -114,3 +114,118 @@ h2 {
     opacity: 0.2;
 }
 
+body {
+    background-image: linear-gradient(to right, #f8c1c2, #fff2f2be);
+    /* background-repeat: repeat-y */
+}
+
+
+/* ikony */
+
+.fa-plus {
+position: relative;
+right: 33px;  
+cursor: pointer;
+color: #fb8085;
+padding: 12px 9px 12px 9px;
+transition: 0.7s;
+font-size: 18px;
+}
+
+.fa-plus:hover {
+background-color: #ff9fa2;
+color: white;
+transition: 0.7s;
+}
+
+.fa-trash-alt {
+cursor: pointer;
+background-color: rgb(255, 81, 0);
+color: white;
+font-size: 15px;
+padding: 14px 10px 13px 10px;
+}
+
+.fa-check {
+cursor: pointer;
+color: white;
+background-color: rgb(2, 168, 2);
+font-size: 15px;
+padding: 14px 10px 13px 10px;
+}
+
+.fa-trash {
+font-size: 28px;
+position: fixed;
+right: 20px;
+bottom: 20px;
+cursor: pointer;
+}
+
+
+/* ----------------------------- */
+
+
+/* vypis */
+
+.veci {
+text-align: center;
+}
+
+#pridane {
+/* display: inline-block;
+text-align: left;
+font-size: 20px;
+color: rgb(0, 0, 0); */
+margin: 0 15% 0 15%;
+font-size: 17px;
+
+}
+
+
+/* ---------------------------*/
+
+.pridanie {
+/* text-align: center; */
+display: flex;
+justify-content: center;
+margin-top: 10%;
+}
+
+
+/* input */
+
+#vec {
+/* padding-right: 15.75px; */
+/* padding: 10px 15.75px 10px 10px; */
+margin-left: 30px;
+border: none;
+outline: none;
+font-size: 18px;
+}
+
+
+/* ---------------------------*/
+
+h2 {
+cursor: pointer;
+display: inline-block;
+font: 900
+}
+
+.text {
+display: flex;
+justify-content: space-between;
+background-color: white;
+align-items: center;
+padding-left: 15px;
+}
+
+.vypis {
+padding: 10px;
+}
+
+.fajka {
+text-decoration: line-through;
+opacity: 0.2;
+}
